@@ -10,14 +10,6 @@
 	"browser": true,
 	"devel": true,
 	"jquery": true,
-<<<<<<< HEAD
     "esversion": 8,
     "node": true
 }
-=======
-    "esversion": 64
-    
-
-    
-}
->>>>>>> 8ee79f95f657390084aebc33d340ddcd399f7f5f
