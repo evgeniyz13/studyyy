@@ -58,12 +58,12 @@ var boolean = true; */
 ///////// !!!!УСЛОВИЯ!!!
 let num = 50;
 
-if (num < 49){
+if (num < 49) {
     console.log("Неверно!");
-}else if (num > 100) {
-    console.log("Многовато"); 
+} else if (num > 100) {
+    console.log("Многовато");
 } else {
-    console.log ("Верно!");
+    console.log("Верно!");
 }
 //////////
 let money = +prompt("Ваш бюджет на месяц?", ''),
@@ -81,15 +81,15 @@ let appData = {
 for (let i = 0; i < 2; i++) {
     let a = prompt("Введите обязательную статью расходов в этом месяце"),
         b = +prompt("Во сколько обойдется?");
-    if ( typeof (a) === 'string' && typeof (a) != null && typeof (b) != null &&
+    if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null &&
         a != '' && b != '' && a.length < 50) {
-            console.log("done!");
-            appData.expenses[a] = b;
-        } else {    } 
+        console.log("done!");
+        appData.expenses[a] = b;
+    } else {}
 
-};
+}
 
-appData.moneyPerday = appData.moneyData / 30;
+/* appData.moneyPerday = appData.moneyData / 30;
 
 alert("Ежедневный бюджет" + appData.moneyPerday);
 
@@ -124,3 +124,4 @@ appData.expenses.answer11 = answer22;
 
 alert(appData.moneyData / 30);
 
+ */
