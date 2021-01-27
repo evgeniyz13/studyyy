@@ -6,7 +6,11 @@
 
 /* console.log(leftBorderWidth);
 var leftBorderWidth = 1;//существует всегда
-let second = 2; //создаеться только тогда код дошел к ней
+let second = 2; //создаеться только тогд
+
+
+
+а код дошел к ней
 const pi=3.14;
 var number = 5;
 var string = "Hello!";
@@ -56,15 +60,63 @@ var boolean = true; */
 //
 
 ///////// !!!!УСЛОВИЯ!!!
-let num = 50;
-
+/*
+if (4 == 9) {
+  console.log("ok");
+} else {
+  console.log("error");
+} //условия превращают любой тип данных в булиновый чтобы провнрить правдивость
+const num = 50;
 if (num < 49) {
-  console.log("Неверно!");
+  console.log("Error");
+} else if (num > 55) {
+  console.log("Многовато");
 } else if (num > 100) {
   console.log("Многовато");
 } else {
   console.log("Верно!");
 }
+//Тернарный оператор (если num=50 то(?) ... если нет(:) то ...
+(num == 50) ? console.log("Верно!"): console.log("Error");
+// switch всегда работает на строгое сравнение (num=49 (case 49: то... ))
+switch (num) {
+  case 49:
+    console.log('neverno');
+    break; // прописывать брейк чтобы скрипт не шел дальше когда нашел нужное условие
+  case 100:
+    console.log('neverno');
+    break;
+  case 50:
+    console.log('YES');
+    break;
+  default: //дефолт - дейвствие если ни один из кейсов не выполнился 
+    console.log('Ничего не подошло');
+    break;
+}
+////////// ЦЫКЛЫ
+// while
+let num = 50;
+
+while (num < 55) {
+  console.log(num);
+  num++; //добавлять 1 и выводить переменную пока она меньше 55
+}
+// do while
+do {
+  console.log(num);
+  num++;
+}
+while (num < 55);
+// for
+for (let i = 1; i < 8; i++) {
+  if (i === 6) {
+    //break; //закончит цыкл когда дойдет до 6
+    continue; // continue - пропустит шаг когда i будет = 6  
+  }
+  console.log(i);
+}
+*/
+
 //////////
 let money = +prompt("Ваш бюджет на месяц?", ''),
   time = prompt("Введите дату в формате YYYY-MM-DD");
