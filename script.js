@@ -119,7 +119,35 @@ for (let i = 1; i < 8; i++) {
 
 /////////ФУНКЦИИ
 //FUNCTION DECLARATION - как и переменные var создаються еще до выполнения кода 
+//
 
+////////  CALLBACK ФУНЦИИ
+function first() {
+  // Do something
+  setTimeout(function () {
+    console.log(1);
+  }, 500);
+
+}
+
+function second() {
+  console.log(2);
+}
+first();
+second();
+//
+function learnJS(lang, callback) {
+  console.log(`Я учу: ${lang}`);
+  callback();
+}
+A
+
+function done() {
+  console.log('Я прошел этот урок!');
+}
+learnJS('JavaScript', done);
+//
+///////
 function calc(a, b) { // а и б агрументы функции
   return (a + b); //все после return будет Unreacheble тоесть он никогда не выполнится
 }
