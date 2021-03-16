@@ -121,32 +121,6 @@ for (let i = 1; i < 8; i++) {
 //FUNCTION DECLARATION - как и переменные var создаються еще до выполнения кода 
 //
 
-////////  CALLBACK ФУНЦИИ
-function first() {
-  // Do something
-  setTimeout(function () {
-    console.log(1);
-  }, 500);
-
-}
-
-function second() {
-  console.log(2);
-}
-first();
-second();
-//
-function learnJS(lang, callback) {
-  console.log(`Я учу: ${lang}`);
-  callback();
-}
-A
-
-function done() {
-  console.log('Я прошел этот урок!');
-}
-learnJS('JavaScript', done);
-//
 ///////
 function calc(a, b) { // а и б агрументы функции
   return (a + b); //все после return будет Unreacheble тоесть он никогда не выполнится
@@ -208,6 +182,107 @@ console.log(parseInt(test)); //переводит число в другую с�
 console.log(parseFloat(test)); //возвращает значение в десятичном варианте
 
 ///////////
+////////  CALLBACK ФУНЦИИ
+function first() {
+  // Do something
+  setTimeout(function () {
+    console.log(1);
+  }, 500);
+
+}
+
+function second() {
+  console.log(2);
+}
+first();
+second();
+//
+function learnJS(lang, callback) {
+  console.log(`Я учу: ${lang}`);
+  callback();
+}
+
+function done() {
+  console.log('Я прошел этот урок!');
+}
+learnJS('JavaScript', done);
+///////МЕТОДЫ ОЬЪЕКТОВ (АСОЦИАТИВНЫЕ МАССИВЫ) hair func функции вишего порядка
+//объект это структура которая хранит в себе любые типы данных в формате ключ:значение, моут быть вложеными
+//получать  свойство можно либо через точку либо через квадратные скобки
+const options = {
+  name: 'test',
+  widt: 1024,
+  height: 1024,
+  colors: {
+    border: 'black',
+    bg: 'red'
+  },
+  makeTest: function () { //создание свойстава объекта
+    console.log('Test');
+  }
+};
+options.makeTest();
+
+const {
+  border,
+  bg
+} = options.colors; //деструктуризация объекта
+console.log(border);
+
+console.log(Object.keys(options).length); //!!!(встроеный метод или свойство) полезная фишка для подсчета количевства ключей в масиве 
+//console.log(options['colors']['border']); //одни из вариантов достать black, но его не юзать!
+delete options.name;
+console.log(options);
+
+//let counter = 0;
+//*1 for in - конструкия(свойство) перебора
+for (let key in options) { //цыкл сработает столько раз сколько ключей есть в объекте
+  if (typeof (options[key]) === 'object') {
+    for (let i in options[key]) {
+      console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+      //*1 counter++;
+    }
+  } else {
+    console.log(`Свойство ${key} имеет значение ${options[key]}`);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let money = +prompt("Ваш бюджет на месяц?", ''),
   time = prompt("Введите дату в формате YYYY-MM-DD");
 
