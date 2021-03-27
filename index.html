@@ -1,15 +1,69 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--говорит что это HTML 5 -->
 <html lang="eng">
 <head>
-    <meta charset="UTF-8">
+    <!-- форма записи атрибутов name="" -->
+    <meta charset="UTF-8"><!-- кодировка документа -->
     <meta name="viewport" content="widyh=devise-width,
     initial-scale-1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-<div></div>
+<div>
+    <h1>Repeat  HTML </h1>
+    <p id="test"> "ПАРАГРАФ ТЕСТ" тест перехода по ссылке по id элемента</p><br>
+    <h3>Юзать для повторения(там все теги и атрибуты к ним с описанием)</h3>
+    <a href="https://www.w3schools.com/tags/default.asp" target="_blank"> Официальный справочник HTML на английском</a>
+    <br>
+    <a href="http://htmlbook.ru/html" target="_blank"> Не официальный на русском</a>
+    <br><br><br><br><br><br>
+    <a href="#test"> Якокорь на параграф тест </a>
+
+    <ul>
+        <li>тег для создания маркированого списка</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Шапка(заголовок) таблицы...............(tr-столбец  td-строка ).</th>
+                <th>тег th жирная строка </th>
+            </tr>    
+            </thead>
+        <tbody>
+            <tr>
+                <td>Тело таблицы</td>
+                <td>тег td обычная строка</td>
+            </tr>
+        </tbody> 
+        <tfoot>
+            <tr>
+                <th colspan="2">Подвал(итог) с артибутом colspan для поглощения ячеек </th>
+                <td></td>
+            </tr>
+            
+            </tfoot>
+    </table>
+
+    <input type="text"><br>
+    <input type="month" name="" id=""><br>
+
+    <audio controls><!-- controls для отображения плеера, есть такой же для видео -->
+        <source src="qwe.mp3" type="audio/mpeg"><!--  -->
+    </audio>
+
+    
+
+    <hr>
+
+    <img src="classification.jpg" width="1000">
+
+    
+</div>
 <!--скрипт   всегда в конце тега боди(сначала гаружаеться вся верстка, после загрузки подключаеться скрипт) -->
+<!-- h1 тег заголовка  p1 тег абзаца--><!-- -->
     <script src="1.js"></script>
 </body>
 
