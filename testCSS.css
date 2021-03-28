@@ -1,0 +1,54 @@
+/* 
+CSS это каскадная таблица стилей
+ сотстоит из понятия селекторы(превдоэлементы) и свойства
+ после свойства двоеточие и в конце точка с запятой
+ блоки называют правилами
+ */
+a {/* селектор по имени тега*/
+color: rgba(227, 135, 15, 0.91);
+font-size: 23px;
+}
+#qwe {/*серектор по ИДЕНТИФИКАТОРУ*/
+  color:rgb(3, 116, 48);
+}
+.testbackground{/* селектор по КЛАССУ (удобно использовать для типов сообщений ) (классы можно указывать через пробел в html файле)*/
+  color: rgb(53, 4, 4) ;
+  background-color: rgba(36, 77, 19, 0.351);
+  border: 1px solid #323232;/*рамка, певрвый параметр толщина, второй тип рамки, третий цвет*/
+  margin-bottom: 50px;/*margin внешний отступ (можно разными свойствами)*/
+  padding: 10px;/*внутрений отступ (можно разными свойствами)*/
+}
+table{
+  color:rgb(0, 0, 255);
+}
+.testbackground:hover {/*событийные селекторы (чаще всего используют при наведении миши (hover))*/
+border:3px dashed #02bcc0;
+}
+
+#testsobutiy{
+  
+  
+  background-color: rgba(227, 135, 15, 0.91) ;
+  color:black ;
+  padding: 15px;
+  margin: 10px;
+  border: 4px solid rgb(53, 4, 4);
+  border-radius: 30px;
+  opacity: 0.9;
+  width: 60%;
+  display: block;/*для того чтобы узакать видимость єлемента, стандарное значение block (у тегов spen ,strong значение inline-block)*/
+  text-align: center;/*выравнивание текста */
+}
+#testsobutiy:hover{
+  transform: rotate(3deg) scale(1.03);/*функция rotate которая поворачивает с параметром degrise(граудус) scale() изметить размер стандартное значение аргумента(1,0)  */
+  transition:1.5s all;/* скорость анимации, можно указывать отдельные элементы например фон или изменение цвета*/
+  opacity: 0.97;
+  background-color:rgb(243, 121, 21);
+  box-shadow:6px -4px 5px rgba(137, 81, 8, 0.91) ;
+}
+#CSS{
+background-color:rgb(3, 41, 116);
+width:70% ;
+margin: 13px;
+padding: 10px;
+}

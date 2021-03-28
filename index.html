@@ -1,5 +1,6 @@
 <!DOCTYPE html><!--говорит что это HTML 5 -->
 <html lang="eng">
+
 <head>
     <!-- форма записи атрибутов name="" -->
     <meta charset="UTF-8"><!-- кодировка документа -->
@@ -7,19 +8,29 @@
     initial-scale-1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="testCSS.css" rel="stylesheet" type="text/css"/><!--  -->
 </head>
+
 <body>
-<div>
-    <h1>Repeat  HTML </h1>
+<div class="testbackground">
+    <h1 >Repeat  HTML </h1>
     <p id="test"> "ПАРАГРАФ ТЕСТ" тест перехода по ссылке по id элемента</p><br>
     <h3>Юзать для повторения(там все теги и атрибуты к ним с описанием)</h3>
     <a href="https://www.w3schools.com/tags/default.asp" target="_blank"> Официальный справочник HTML на английском</a>
     <br>
     <a href="http://htmlbook.ru/html" target="_blank"> Не официальный на русском</a>
-    <br><br><br><br><br><br>
-    <a href="#test"> Якокорь на параграф тест </a>
 
-    <ul>
+    <br><br><br><br><br><br>
+
+    <h3 id="testsobutiy"> Тест событийных селекторов</h3>
+<div id="CSS">
+<a href="https://ruseller.com/shporacss.php"> Русскоязычная шпаргалка CSS</a><br>
+<a href="https://www.w3schools.com/cssref/"> Официальна англоязычная шпаргалка CSS</a><br>
+</div>
+
+    <a id="qwe" href="#test"> Якокорь на параграф тест </a>
+
+    <ul class="usualtxt">
         <li>тег для создания маркированого списка</li>
         <li>1</li>
         <li>2</li>
@@ -54,14 +65,11 @@
         <source src="qwe.mp3" type="audio/mpeg"><!--  -->
     </audio>
 
-    
-
     <hr>
-
-    <img src="classification.jpg" width="1000">
-
+    <br><br><br><br>
     
 </div>
+<img src="classification.jpg" width="1000">
 <!--скрипт   всегда в конце тега боди(сначала гаружаеться вся верстка, после загрузки подключаеться скрипт) -->
 <!-- h1 тег заголовка  p1 тег абзаца--><!-- -->
     <script src="1.js"></script>
