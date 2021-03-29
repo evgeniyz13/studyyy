@@ -262,7 +262,7 @@ for (let value of arrr) {
 
 //МЕТОД перебора forEach принимает в себя 3 аргумента (1-элемент который сейчас перебираеться 2-номер по порядку 3-ссылка на масив которые перебираем)
 arrr.forEach(function (item, i, arrr) {
-  console.log(`${i}: ${item} внутри массива ${arrr}`)
+  console.log(`${i}: ${item} внутри массива ${arrr}`);
 });
 
 //метод split превращает строку в масив, в скобочках указываем разделитель
@@ -318,9 +318,9 @@ const add = {
   e: 20
 };
 //метод для склеивания объектов(в скобках первый аргумент В который записываем, второй который добавляем)
-console.log(Object.assingn(numbers, add));
+//console.log(Object.assingn(numbers, add));
 //фишка чтобы поверхносно клонировать объект
-const clone = Object.assingn({}, add);
+//const clone = Object.assingn({}, add);
 //метод для клонирования массива
 const oldArray = ['a', 'b', 'sdf'];
 const newArray = oldArray.slice();
@@ -380,7 +380,7 @@ jonh.seyHello();
 /////////ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ
 //МОЖНО ИСПОЛЬЗОВАТЬ МЕТОД String он просто превращает в строку(ну такимпользовались в старых стандартах) 
 //Можно к числу приавить пробел иполучится строка
-console.log(5 + '')
+console.log(5 + '');
 const frontSize = 26 + 'px';
 //ПЕрводим в чило
 console.log(typeof (+'5')); // с помощью унарного плюса
@@ -400,94 +400,24 @@ if (switcher) {
 //2)
 console.log(typeof (!!'4444')); // !! превращает выражение в булиновое
 
-/////////
+/////////Взаемодействие со страницей
+//в косоле браузера написать document. и там отобразятся все свойства и методы которые присущи этому глобальному объекту
+// есть методы для получения элементов(1 )
 
+const box = document.getElementById('HTML');
+//console.log(box); //выводим в консоль браузера элемент с id HTML
 
+const box2 = document.getElementsByTagName('table')[2];
+/* в переменную мы получили псевдомассив(тоесть массив без методов и свойств,
+ [2] означает что из этого массива мы взяли 3-й элемент)
+ ДАЖЕ если там один элемент нужно всеравно обращаться к эго элементу [0]*/
 
+const box3 = document.getElementsByClassName("CSS");
 
+const box4 = document.querySelectorAll("#test");
+//обязательно ставить селектор(# или .) так как не понятно к чему мы обращаемся)
+box4.forEach(item => { //перебираем псевдомассив с помощью forEach и стрелочной кол бек ф-и
+  console.log(item);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let money = +prompt("Ваш бюджет на месяц?", ''),
-  time = prompt("Введите дату в формате YYYY-MM-DD");
-
-let appData = {
-  moneyData: money,
-  timeData: time,
-  expenses: {},
-  optionalExpenses: {},
-  income: [],
-  savings: false
-};
-
-for (let i = 0; i < 2; i++) {
-  let a = prompt("Введите обязательную статью расходов в этом месяце"),
-    b = +prompt("Во сколько обойдется?");
-  if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null &&
-    a != '' && b != '' && a.length < 50) {
-    console.log("done!");
-    appData.expenses[a] = b;
-  } else {}
-
-}
-
-/* appData.moneyPerday = appData.moneyData / 30;
-
-alert("Ежедневный бюджет" + appData.moneyPerday);
-
-if (appData.moneyPerday < 100) {
-    console.log("Минимальный уровень достатка");
-} else if (appData.moneyPerday > 100 & appData.moneyPerday < 2000) {
-    console.log("Средний уровень достатка");
-} else if (appData.moneyPerday > 2000) {
-    console.log("Высокий уровень достатка");
-} else {
-    console.log("Произошла ошибка");
-}
-let money = prompt("Ваш бюджет на месяц?", ''),
-    time = prompt ("Введите дату в формате YYYY-MM-DD");
-    
-let appData = {
-    moneyData: money,
-    timeData: time,
-    expenses: { },
-    optionalExpenses: { },
-    income: [  ],
-    savings: false
-    };
-    
-let answer1 = prompt ("Введите обязательную статью расходов в этом месяце"),
- answer2 = prompt ("Во сколько обойдется?"),
- answer11 = prompt ("Введите обязательную статью расходов в этом месяце"),
- answer22 = prompt ("Во сколько обойдется?");
- 
-appData.expenses.answer1 = answer2;
-appData.expenses.answer11 = answer22;
-
-alert(appData.moneyData / 30);
-
- */
+const firstelement = document.querySelector("#test"); //выводит первый элемент
