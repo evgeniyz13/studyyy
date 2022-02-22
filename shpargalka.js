@@ -89,7 +89,6 @@ switch (num) {
     console.log('neverno');
     break; // прописывать брейк чтобы скрипт не шел дальше когда нашел нужное условие
   case 100:
-
     console.log('neverno');
     break;
   case 50:
