@@ -1,6 +1,14 @@
 'use strict';
 
-const numberOfFilms = +prompt("Сколько вы уже посмотрели фильмов?");
+let numberOfFilms;
+
+function start() {
+  numberOfFilms = +prompt("Сколько вы уже посмотрели фильмов?");
+
+  while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+
+  }
+}
 
 const personalMovieDB = {
   count: numberOfFilms,

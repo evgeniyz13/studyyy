@@ -83,3 +83,63 @@ const personalMovieDB = {
 };
 
 
+
+for (let i = 2; i <= 16; i++) {
+  if (i % 2 === 0) {
+    continue;
+  } else {
+    console.log(i);
+  }
+}
+let num = 2;
+while (num <= 15) {
+  num++;
+  if (num % 2 === 0) {
+    continue;
+  } else {
+    console.log(num);
+  }
+}
+const arrayOfNumbers = [];
+//
+for (let i = 4, a = 0; i < 10; i++, a++) {
+  arrayOfNumbers[a] = i + 1;
+}
+console.log(arrayOfNumbers);
+//
+// const arr = [3, 5, 8, 16, 20, 23, 50];
+// const result = [];
+// for (let i = 0; i < arr.length; i++) {
+//   result[i] = arr[i];
+// }
+// console.log(result);
+// //
+// // const data = [5, 10, 'Shopping', 20, 'Homework'];
+// // for (let i = 0; i < data.length; i++) {
+// //   if (typeof (data[i]) === 'number') {
+// //     data[i] = data[i] * 2;
+// //   } else if (typeof (data[i]) === 'string') {
+// //     data[i] = `${data[i]} - done`;
+// //   }
+// // }
+// // console.log(data);
+//
+const data = [5, 10, 'Shopping', 20, 'Homework'];
+const result = [];
+for (let i = 1; i <= data.length; i++) {
+  result[i - 1] = data[data.length - i]
+}
+console.log(result);
+
+function getCoupeNumber(num) {
+  if (typeof (num) !== 'number' || num < 0 || !Number.isInteger(num)) {
+    console.log('Ошибка. Проверьте правильность введенного номера места');
+  } else if (num === 0 || num > 36) {
+    console.log('Таких мест в вагоне не существует');
+  } else {
+    console.log(Math.ceil(num / 4));
+  }
+}
+
+
+getCoupeNumber(20);
