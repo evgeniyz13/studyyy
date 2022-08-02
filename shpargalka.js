@@ -444,8 +444,32 @@ const style = document.getElementById("CSS");
 
 //   return n * factorial(n - 1));
 
+// // }
+// function factorial(n) {
+//   return n ? n * factorial(n - 1) : 1;
 // }
-function factorial(n) {
-  return n ? n * factorial(n - 1) : 1;
+// console.log(factorial(5));
+
+/////////// Оператор нулевого слияния (Nullish) ES11
+let userName = 0,
+keyName = 285;
+
+console.log(userName ?? keyName ?? 'clearName'); // оператор ?? перевіряє тільки на null і undefiend
+console.log(userName || keyName || 'clearName') // Оператор АБО в даному випадку виведе перше правдиве значення, тобно 0 не зможе використати
+//
+// Оператор опцилнальной цепочки  ES11
+const userData = {
+  name: 'Yevhenii',
+  age: null,
+  sey: function(){
+    return 'Hi'
+  }
 }
-console.log(factorial(5));
+console.log(userData.hi?.());//перевіряє чи існує функція hi якщо ні, то видає undefined, якщо не використовувати "?" то код далі не піде
+console.log(userData.sey());
+
+
+if(userData && userData.skills && userData.skills.js){
+  console.log(userData.skills.js)
+}//код нижче поторює написане вище з оператором "?"
+console.log(userData?.skills?.js);// '?' перевіряє існування всього що хнаходиться по ліву сторону і якщо воно є то код іде далі, якщо ні то повертає undefined
