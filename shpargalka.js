@@ -473,3 +473,39 @@ if(userData && userData.skills && userData.skills.js){
   console.log(userData.skills.js)
 }//код нижче поторює написане вище з оператором "?"
 console.log(userData?.skills?.js);// '?' перевіряє існування всього що хнаходиться по ліву сторону і якщо воно є то код іде далі, якщо ні то повертає undefined
+/////Symbol ES6
+// Всегда уникальная сущность
+//Позволяют создать скрытые при обычном доступе свойства, которые не позазываются при переборе обьекта
+let id = Symbol('id')
+let obj = {
+  info : 'text',
+  [Symbol('id') ]: 972,
+  [Symbol.for('id')]: 123 //глобальный реестр символов
+}
+for(let value in obj){ console.log(value)}// Symbol при переборе не виден
+console.log(Object.getOwnPropertySymbols(obj))//получаем ссылку на все символы в обьекте в виде массива, но без значения
+console.log(obj[Object.getOwnPropertySymbols(obj)[0]])// выводим значение первого сивола
+console.log(obj[Symbol.for('id')])
+console.log(obj);
+
+////Атрибуты(флаги)
+//writable если тру, то свойства в обьекте можно изменять, если фолс то только для чтения
+//enumereble если тру то свойство будет перечислятся в цыклах, если нет то цыклы будут его игнорировать
+//configurable если тру то свойства можно удалять, а атрибуты можно изменить, если фолс то делать этого нельзя
+
+const User = {
+  name: 'Yevhenii',
+  age: '22',
+  birthday: '13/05/2000' ,
+  showMyPublicData: function(){
+    console.log(`${this.name} ${this.age}`)
+  }
+}
+console.log(Object.getOwnPropertyDescriptor(User, 'age'))
+// посмотреть флаги определенного свойства
+Object.defineProperty(User, 'age', {writable: false})
+// изменение флага свойства, теперь возраст рид онли
+Object.defineProperty(User, 'gender', {value: 'male'})
+//создание нового свойства с помощью defineProperties (при таком методе все флаги по дефолту фолс)
+//Object.defineProperty(User, 'surname', {value: prompt('Surname?'),enumereble: true, configurable: true })
+////////Пересмотреть урок про итерируемые конструкции и далее, в разделе Доп основы JS!!!
