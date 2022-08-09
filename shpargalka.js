@@ -488,11 +488,10 @@ console.log(obj[Object.getOwnPropertySymbols(obj)[0]])// выводим знач
 console.log(obj[Symbol.for('id')])
 console.log(obj);
 
-////Атрибуты(флаги)
+////Атрибуты(флаги) Дескрипторы
 //writable если тру, то свойства в обьекте можно изменять, если фолс то только для чтения
 //enumereble если тру то свойство будет перечислятся в цыклах, если нет то цыклы будут его игнорировать
 //configurable если тру то свойства можно удалять, а атрибуты можно изменить, если фолс то делать этого нельзя
-
 const User = {
   name: 'Yevhenii',
   age: '22',
@@ -508,4 +507,92 @@ Object.defineProperty(User, 'age', {writable: false})
 Object.defineProperty(User, 'gender', {value: 'male'})
 //создание нового свойства с помощью defineProperties (при таком методе все флаги по дефолту фолс)
 //Object.defineProperty(User, 'surname', {value: prompt('Surname?'),enumereble: true, configurable: true })
+
 ////////Пересмотреть урок про итерируемые конструкции и далее, в разделе Доп основы JS!!!
+
+////// MAP (спрециальная структура данных)
+// так как ключи не могут быть обьектами используют мепы, в них вместо свойст можно использовать и обекты и функции и массив
+// внутри Map это массив массивов
+// Map итерируемый обьект, тоесть можно использова for of даже без символ итератора
+// ГЛАВНЫЕ ОТЛИЧИЯ КАРТ ОТ ОБЬЕКТОВ
+// у карт ключем можем быть что угодно(функция, обект и тд), а у обьекта только строка
+// порядок свойстввсегда такой в каком их добавляли 
+// в пустой карте ничего не содержится, в обьекте например есть наследуемые свойства через прототип и тд
+// Очень просто узнать размер через size, а обьект надо трансформировать в массив например свойств а потом узнать длину этого массива
+const shops = [
+  {rise: 300},
+  {oil: 500},
+  {salt: 999}
+]
+const testMap = new Map([ //так как это массив массивов данные вносятся именно так
+  [{meat: 30}, 10000]
+]);
+testMap.set(shops[0], 380)
+      .set(shops[1], 505)
+      .set(shops[2], 9000); 
+    ///можно записывать данные в таком формате, так как после одной итерации работы, команда возвращает обьект Map и на нем можно опять приметить set
+const budget = [700, 805, 21000];
+shops.forEach((shops, i) => {
+  testMap.set(shops, budget[i] )
+})// Но лучше пользоватся цыклами 
+// методы
+console.log(testMap.get(shops[2])); // get - получение значения 
+console.log(testMap.has(shops[1])); // has - проверка на наличие элемента
+testMap.delete(shops[0]); // удаление элементов
+//testMap.clear(); // полная очистка карты
+console.log(testMap.size); // СВОЙСТОВО  size количесвтво элементов в карте на данный момент
+const goods = [];
+//keys просто выдает ключи, если просто вывести map.key() то выдаст массив с обьектами(ключами) 
+for(let shop of testMap.keys()){  // тут мы карту превратили в массив с обьектами
+goods.push(Object.keys(shop)) // теперь преобразовываем этот обьект в массив свойст чтобы вытащить только ключи
+}
+console.log(goods);
+
+for(let price of testMap.values()){ // valuses() то же что и keys только выдает значение (итерируемый обьект по значениям)
+  console.log(price)
+}
+// entries() выдает массив с подмасивами
+for(let [values, price] of testMap.entries()){ // тут уже деструктуризированый массив (так часто делают)
+  console.log(values, price)
+}
+
+testMap.forEach((value, key, map) => {
+  console.log(key, value)
+})
+console.log(testMap);
+
+// Создаем карту из обьекта
+const userMap = new Map(Object.entries(User))// так как Map() принимает значения в формате массив с масивами, с помощью entries делаем такую структуру из обьекта User
+
+//Превращаем карту в обьект
+const newUserObj = Object.fromEntries(userMap);
+
+///////////////// SET (спец структура данных)
+// особый вид коллекций где каждое значение может повторяться только один раз(массив где значения не повторяются)
+//
+const arr = ['Yevhenii', 'Yevhenii', 'Oleg', 'Ivan' ];
+const set = new Set(arr);
+// Metods
+set.add('Pavlo');// Добавление 
+set.has('Pavlo') //проверка есть ли такое значение
+//set.clear() //Очистка
+//set.delete() // удаление
+for(let value of set ) console.log(value)
+set.forEach((value, valueAgain, set) => {// для совместимости второй аргумент повторяет первый
+console.log(value, valueAgain)
+})
+console.log(set);
+//// Часто используют функцию фильтрации (!Запомнить)
+function unique (arr){
+  return Array.from(new Set(arr))
+}
+
+
+////WeakMap WeakSet
+ let yevhenii = {name:'Yevhenii'};
+ let map = new WeakMap();
+ map.set(yevhenii, 'data');
+ yevhenii = null;
+
+
+ 
