@@ -601,7 +601,7 @@ function Human(name, age, id){// функция конструктор, тепе
     console.log('Hello' + this.name)
   }
 }
-//можно добавить новый свойства в конструктор и они будут прототипно наследоватся у потомков(используется если нет доступа к прототипу но его нужно модифицыровать)
+//можно добавить новые свойства в конструктор и они будут прототипно наследоватся у потомков(используется если нет доступа к прототипу но его нужно модифицыровать)
 Human.prototype.exit =  function(){
   console.log(`Пользователь ${this.name} ушел`)
 };
@@ -622,7 +622,7 @@ let objTest = {
   name: "Tom",
 };
 ShowThis.call(objTest, "Shelby"); // в ручную передаем контекст вызова функции
-ShowThis.apply(objTest); //отличаются только тем что в call аргументы можно передавать через запятую, а в apply в массиве
+ShowThis.apply(objTest, ["Cruise"]); //отличаются только тем что в call аргументы можно передавать через запятую, а в apply в массиве
 
 function count(num) {
   return this * num;
@@ -676,3 +676,14 @@ console.log(square.calcArea());
 const div = new ColoredRectangleWithText(25, 15, "Test text", "white");
 div.showMyProps();
 console.log(div.calcArea());
+
+// Rest ОПЕРАТОР И параметр по умолчанию
+function log(a, b, ...rest) {
+  // (Rest) - обьеденяет все оставшиеся аргументы в массив
+  console.log(a, b, rest);
+}
+function calcDouble(nubmer, basic = 2) {
+  // значение basik по умолчнию 2, но если указать 2 аргумента при вызове ф-и, то будт юзать его
+  console.log(nubmer * basic);
+}
+calcDouble(5, 77);
