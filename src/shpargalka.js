@@ -1,6 +1,10 @@
 "use strict"; // строгий режим
+// @ts-check
 /* Shift+Alt+A = закоментить блок кода */
 //закоментить строкуCtrl + /
+[].redude();
+let itsAsEasyAs = "abc";
+itsAsEasyAs = 123;
 
 /* console.log(leftBorderWidth);
 var leftBorderWidth = 1;//существует всегда
