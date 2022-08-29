@@ -1,10 +1,8 @@
 "use strict"; // строгий режим
-// @ts-check
+// @ts-checking
+
 /* Shift+Alt+A = закоментить блок кода */
 //закоментить строкуCtrl + /
-[].redude();
-let itsAsEasyAs = "abc";
-itsAsEasyAs = 123;
 
 /* console.log(leftBorderWidth);
 var leftBorderWidth = 1;//существует всегда
@@ -172,7 +170,7 @@ console.log(arr.length);
 console.log(str.toLocaleUpperCase()); //само значение переменной не меняется на прямую а просто возвращает измененное значение, после метода обязательно круглые скобки в конце
 
 const fruit = 'Some fruit';
-console.log(fruit.indexOf('fruit')); //'поиск подстроки'-ищет слово в строке и в результате показывает с какого по номеру символа оно начитаеться в данной строке(если не найден, то выдает -1)
+console.log(fruit.indexOf('fruit')); //'поиск подтроки'-ищет слово в строке и в результате показывает с какого по номеру символа оно начитаеться в данной строке(если не найден, то выдает -1)
 
 const logg = 'Hello world';
 console.log(logg.slice(6, 11)); //вырезаем кусок строки, два аргумента, это начало и конец слова последнее значение указываеться не включая заданый символ
@@ -190,7 +188,7 @@ const test = '12.2px';
 console.log(parseInt(test)); //переводит число в другую систему иcчесления, в данном случае строку в число
 console.log(parseFloat(test)); //возвращает значение в десятичном варианте
 
-///////////
+///////////с
 ////////  CALLBACK ФУНЦИИ
 function first() {
   // Do something
@@ -681,7 +679,7 @@ const div = new ColoredRectangleWithText(25, 15, "Test text", "white");
 div.showMyProps();
 console.log(div.calcArea());
 
-// Rest ОПЕРАТОР И параметр по умолчанию
+/////////// Rest ОПЕРАТОР И параметр по умолчанию
 function log(a, b, ...rest) {
   // (Rest) - обьеденяет все оставшиеся аргументы в массив
   console.log(a, b, rest);
@@ -691,3 +689,105 @@ function calcDouble(nubmer, basic = 2) {
   console.log(nubmer * basic);
 }
 calcDouble(5, 77);
+
+////////// JSON(современный текстовый формат обмена данных), глубокое клонирование обьекта
+const obj = {
+  name: "Yevhenii",
+  age: "22",
+  perents: {
+    dad: "Alex",
+    mom: "Ludmila",
+  },
+};
+const clone = JSON.parse(JSON.stringify(obj)); // с помощью форматирования в json и расформатирования обратно мы поулчаем полностью независимую копию обьекта
+clone.perents.mom = "qwewerqwe";
+console.log(obj);
+console.log(clone);
+
+//////// Promise (ожидание предоставить результат позже)
+// Есть 3 сосотояния (ожидание, исполнен, отклонен)
+// Позволяют обрабатывать отложенные во времени события
+const prom = new Promise((resolve, reject) => {
+  // одну из функций нужно вызвать для окончания проммиса(либо исполнет либо отклонен)
+  resolve();
+});
+//методы можно комбинировать, запись ниже считаеться правильной и удобной
+prom
+  .then((value) => {
+    //value = то что передано в качестве аргумета ф-и resolve
+    console.log("Данные получены");
+  })
+  .catch((error) => {
+    //действия на случай отколонения, тоесть если внутри промиса сработала ф-я reject
+    //error = то что передано в reject
+  });
+////// Fetch (поддерживается только браузером)
+// замена XMLHttpRequest
+// когда отправляем fetch запрос создается промисс(в состоянии pending)
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => {
+    console.log(response);
+    return response.json();
+  })
+  .then((json) => console.log(json))
+  .catch((error) => console.error(error));
+
+/////// Методы перебора (которые можно испольковать по цепочке, тоесть они как итог выдают новый массив)
+
+//filter
+const names = ["Ivan", "Ann", "Ksenia", "Voldemart"];
+const shortNames = names.filter(function (name) {
+  return name.length < 5;
+});
+console.log(shortNames);
+
+//map
+
+const answer = ["AnnA", "IvAn", "Hello"];
+const result = answer.map((item) => item.toLocaleLowerCase());
+
+//every & some
+// выдают только булиновые значения
+const some = [4, "qweqw", "efsdfsdfs"];
+console.log(some.some((item) => typeof item === "number")); // хотябы один элемент является числом
+console.log(some.every((item) => typeof item === "number")); // все елементы числа
+
+// reduce
+const arr = [5, 8, 1, 1, 7, 8];
+const result2 = arr.reduce((sum, current) => sum + current); // сумма елементов
+
+const obj2 = {
+  ivan: "persone",
+  ann: "persone",
+  dog: "animal",
+  cat: "animal",
+};
+const newArr = Object.entries(obj2) //превращаем обьект в массив с массивами
+  .filter((item) => item[1] === "persone") // отставляем только массивы со свойством persone
+  .map((item) => item[0]); //оставляем только первый елемент массива
+console.log(newArr);
+
+const funds = [
+  { amount: -1400 },
+  { amount: 2400 },
+  { amount: -1000 },
+  { amount: 500 },
+  { amount: 10400 },
+  { amount: -11400 },
+];
+
+const getPositiveIncomeAmount = (data) => {
+  return data
+    .filter((item) => item.amount > 0)
+    .reduce((total, curr) => total + curr.amount, 0);
+};
+
+const getTotalIncomeAmount = (data) => {
+  let res = data.some((item) => item.amount < 0);
+  if (res === true) {
+    return data.reduce((total, curr) => total + curr.amount, 0);
+  } else {
+    return getPositiveIncomeAmount(data);
+  }
+};
+console.log(getTotalIncomeAmount(funds));
